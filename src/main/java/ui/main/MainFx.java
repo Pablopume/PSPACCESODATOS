@@ -1,5 +1,6 @@
 package ui.main;
 
+import jakarta.inject.Inject;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,12 +9,16 @@ import javafx.stage.Stage;
 import ui.screens.login.LoginController;
 
 public class MainFx extends Application {
+    @Inject
+    FXMLLoader loader;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Cargar el archivo FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ruta/a/tu/archivo.fxml"));
-        Parent root = loader.load();
+Parent fxmlParent= loader.load(getClass().getResourceAsStream("/fxml/login.fxml"));
+        PrincipalController controller = loader.getController();
+Parent root = loader.load();
+
 
         // Obtener el controlador
         LoginController controller = loader.getController();
