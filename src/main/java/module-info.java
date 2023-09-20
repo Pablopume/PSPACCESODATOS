@@ -20,10 +20,10 @@ module javafx {
     exports dao.impl;
 
     opens ui.screens.login;
-    opens ui.screens.principal;
+
     opens ui.main;
-    opens css;
+
     opens fxml;
-    opens services;
+
     opens common;
 }
